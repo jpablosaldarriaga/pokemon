@@ -1,0 +1,30 @@
+
+<div class="container-md">
+    
+    
+    <div class="mb-3 row pt-3">
+        <input placeholder="Ingrese el ID del pokemón" type="text" class="btn-check" #pokemon_id/>
+        <button type="button" class="btn-primary" (click)="getPokemonById(pokemon_id.value)"> Buscar </button>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Imagen</th> 
+      </tr>
+      </thead>
+      <tbody>
+          <tr class="details" (click)="openDetails(pokemon)" *ngFor="let pokemon of pokemons">
+            <td>
+              <ngb-highlight [result]="pokemon.pokemon_id" ></ngb-highlight>
+            </td>
+            <td><ngb-highlight [result]="pokemon.name" ></ngb-highlight></td>
+            <td>
+                <img [src]="pokemon.image" class="me-2" style="width: 100px" alt=""/>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+</div>

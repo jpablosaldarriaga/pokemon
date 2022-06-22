@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "web-pokemon": {
+      "hosting": {
+        "web-pokemon": [
+          "web-pokemon"
+        ]
+      }
+    }
+  }
+}

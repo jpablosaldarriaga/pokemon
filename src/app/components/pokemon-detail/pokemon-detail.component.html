@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h4 class="modal-title">Detalles de {{pokemon.name}}</h4>
+  </div>
+  <div class="modal-body">
+    <img [src]="pokemon.image" class="center" alt=""/>
+    <div class="container-md">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Peso</th>
+              <th scope="col">Altura</th>
+              <th scope="col">Locación</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    <ngb-highlight [result]="pokemon.name" ></ngb-highlight>
+                  </td>
+                  <td><ngb-highlight [result]="pokemon.weight" ></ngb-highlight>lb</td>
+                  <td><ngb-highlight [result]="pokemon.height" ></ngb-highlight>''</td>
+                  <td><ngb-highlight [result]="pokemon.location" ></ngb-highlight></td>
+                </tr>
+            </tbody>
+          </table>
+        <div class="row">
+            <div class="col-6">
+                <h5>Movimientos</h5>
+                <ul *ngFor="let move of moves | slice:0:10">
+                    <li>{{move}}</li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <h5>Habilidades</h5>
+                <ul *ngFor="let ability of abilities | slice:0:10">
+                    <li>{{ability}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-info">Editar</button>
+    <button type="button" class="btn btn-danger" (click)="deletePokemon(pokemon.pokemon_id)">Eliminar</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
+</div>
